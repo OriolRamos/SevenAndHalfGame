@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siete y Media</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Seven and a Half Game</h1>
+
+  <div id="start-screen" class="box">
+    <label>Name:</label>
+    <input type="text" id="player-name" class="input-box"/>
+    <label>Initial Money:</label>
+    <input type="number" id="initial-money" class="input-box"/>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <div id="game-screen" style="display:none;">
+    <h2><span id="display-name"></span></h2>
+    <p>Total Money: $<span id="money"></span></p>
+    <button onclick="startNewRound()">New Round</button>
+    <button onclick="endGame()">End Game</button>
+
+    <div id="round-section" style="display:none;">
+
+      <!-- Player's card section -->
+      <div class="section">
+        <h3>Your Cards:</h3>
+        <div class="cards-section">
+          <div class="cards-display" id="player-cards"></div>
+          <p>Your Score: <span id="player-score">0</span></p>
+          <button onclick="drawPlayerCard()">Ask Card</button>
+          <button onclick="stand()">Stand</button>
+        </div>
+      </div>
+
+      <!-- Visual separator between player and dealer cards -->
+      <hr class="divider">
+
+      <!-- Dealer's card section -->
+      <div class="section">
+        <h3>Dealer Cards:</h3>
+        <div class="cards-section">
+          <div class="cards-display" id="dealer-cards"></div>
+          <p>Dealer's Score: <span id="dealer-score">0</span></p>
+        </div>
+      </div>
+
+      <p id="result-message"></p>
+    </div>
+  </div>
+</div>
+<div id="animation" class="hidden"></div>
+<script src="script.js"></script>
+</body>
+</html>

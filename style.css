@@ -1,0 +1,239 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Title Styles */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background-color: #007BFF; /* Blue background */
+  color: white;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* Player Information Section Styles */
+#start-screen {
+  background-color: #e0e0e0; /* Gray background */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between elements */
+}
+
+#start-screen label {
+  font-weight: bold;
+}
+
+.input-box {
+  width: 98%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+/* Start Button Style */
+button {
+  padding: 12px;
+  background-color: #007BFF; /* Same blue as the title */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Card Section Styles */
+.cards-section {
+  margin-top: 15px;
+}
+
+.cards-display {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  width: 60px;
+  height: 80px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.card-hearts, .card-diamonds {
+  background-color: red;
+}
+
+.card-spades, .card-clubs {
+  background-color: black;
+}
+
+@keyframes cardAppear {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Section Styles */
+.section {
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #f3f3f3;
+}
+
+.section h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cards-section {
+  margin-top: 10px;
+}
+
+/* Divider Style */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+/* Animation Styles */
+#animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  padding: 20px;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.win-animation {
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: celebration 1s ease-in-out infinite;
+  color: green;
+}
+
+.lose-animation {
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: shake 0.5s ease-in-out;
+  color: red;
+}
+
+/* Celebration Animation */
+@keyframes celebration {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Card Flip Styles */
+.card {
+  width: 60px;
+  height: 90px;
+  perspective: 1000px;
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  overflow: hidden; /* Prevent elements from being cut off during rotation */
+}
+
+.card .card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease; /* Keep the same duration for the transition */
+  transform: rotateY(0deg); /* Show the back side at the beginning */
+}
+
+.card.flip .card-inner {
+  transform: rotateY(-180deg); /* Rotate to show the front */
+}
+
+.card .card-back,
+.card .card-front {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.card .card-back {
+  background-color: #2f2f2f; /* Color of the back side */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.card .card-front {
+  background-color: #ffffff; /* Color of the front side */
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  transform: rotateY(180deg); /* Keep the front side flipped initially */
+}
